@@ -12,15 +12,18 @@ var createNewTaskElement = function (taskString) {
     var deleteButton = document.createElement("button");
     var deleteButtonImg = document.createElement("img");
 
+    listItem.className = "task-list__item";
     label.innerText = taskString;
-    label.className = 'task-list__label';
+    label.className = "task-list__label";
     checkBox.type = "checkbox";
+    checkBox.className = "task-list__checkbox";
     editInput.type = "text";
-    editInput.className = "input";
+    editInput.classList = "task-list__input input";
     editButton.innerText = "Edit";  //innerText encodes special characters, HTML does not.
-    editButton.className = "edit-button";
-    deleteButton.className = "delete-button";
-    deleteButtonImg.src = './remove.svg';
+    editButton.classList = "task-list__button edit-button";
+    deleteButton.classList = "task-list__button delete-button";
+    deleteButtonImg.src = "./remove.svg";
+    deleteButtonImg.className = "delete-button__image"
     deleteButton.appendChild(deleteButtonImg);
 
     listItem.appendChild(checkBox);
@@ -42,8 +45,8 @@ var addTask = function () {
 
 var editTask = function () {
     var listItem = this.parentNode;
-    var editInput = listItem.querySelector('input[type=text]');
-    var label = listItem.querySelector("label");
+    var editInput = listItem.querySelector(".task-list__input");
+    var label = listItem.querySelector(".task-list__label");
     var editBtn = listItem.querySelector(".edit-button");
     var containsClass = listItem.classList.contains("task-list__item_edit-mode");
 
@@ -82,9 +85,9 @@ var taskIncomplete = function () {
 addButton.addEventListener("click", addTask);
 
 var bindTaskEvents = function (taskListItem, checkBoxEventHandler) {
-    var checkBox = taskListItem.querySelector("input[type=checkbox]");
-    var editButton = taskListItem.querySelector("button.edit-button");
-    var deleteButton = taskListItem.querySelector("button.delete-button");
+    var checkBox = taskListItem.querySelector(".task-list__checkbox");
+    var editButton = taskListItem.querySelector(".edit-button");
+    var deleteButton = taskListItem.querySelector(".delete-button");
 
     editButton.onclick = editTask;
     deleteButton.onclick = deleteTask;
