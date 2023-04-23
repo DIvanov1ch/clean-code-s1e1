@@ -50,8 +50,7 @@
   padding: 0px;
 }
 
-.task-list__item,
-h3 {
+.task-list__item {
   list-style: none;
 }
 
@@ -78,8 +77,7 @@ h3 {
 }
 
 /* Heading */
-.section__title,
-label[for="new-task"] {
+.section__title {
   color: #333;
   font-weight: 700;
   font-size: 15px;
